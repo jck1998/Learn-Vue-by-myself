@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+
+<div id="app">
+  <img v-bind:src="imgURL">
+  <a v-bind:href="aHref">bilibili!!</a>
+  <!--v-bind语法糖为:-->
+  <img :src="imgURL">
+  <a :href="aHref">bilibili!!</a>
+</div>
+
+<script src="../js/vue.js"></script>
+<script>
+  const app = new Vue({
+    el: '#app',
+    data:{
+      message:'你好啊！',
+      imgURL:'https://img20.360buyimg.com/pop/s590x470_jfs/t1/163419/1/1867/86586/5ff96bcbEe854fd0f/9865eabb43c5429e.jpg.webp',
+      aHref:'https://www.bilibili.com/'
+    }
+  })
+
+</script>
+
+</body>
+</html>

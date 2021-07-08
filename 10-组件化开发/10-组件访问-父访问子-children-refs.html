@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+
+<div id="app">
+  <cpn></cpn>
+  <cpn></cpn>
+  <cpn ref="aaa"></cpn>
+  <button @click="btnClick">按钮</button>
+</div>
+
+<template id="cpn">
+  <div>我是子组件</div>
+</template>
+
+<script src="../js/vue.js"></script>
+<script>
+  const app = new Vue({
+    el: '#app',
+    data:{
+      message:'你好啊！'
+    },
+    methods:{
+      //父组件能直接拿到子组件的对象，这样可以直接调用子组件里面的方法$children和$refs
+      btnClick(){
+        //.1.$children
+        //console.log(this.$children);
+        // for(let c of this.$children){
+        //   console.log(c.name);
+        //   c.showMessage()
+        // }
+
+        //如果有很多cpn，第一开始取得是第二个cpn，但如果插入一个，那括号内的值又要改变，很麻烦
+        //console.log(this.$children[2].name);
+
+        //2.$refs(用的多)对象类型，默认是一个空的对象 在父里面写 ref=""
+        console.log(this.$refs.aaa.name);
+      }
+    },
+    components: {
+      cpn: {
+        template: '#cpn',
+        data() {
+          return {
+            name: '我是子组件的name',
+          }
+        },
+        methods: {
+          showMessage() {
+            console.log('showMessage');
+          }
+        }
+      }
+    }
+  })
+
+</script>
+
+</body>
+</html>

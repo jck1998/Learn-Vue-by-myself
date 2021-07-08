@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<!--为了防止多人项目相同名称的全局变量引起其他js文件的一些错误，所以引入模块化，防止其他js文件里相同的变量影响其他文件-->
+<!--一旦加入type="module"就没有命名冲突的问题了,使每个文件变成了单独的一个模块-->
+<script src="aaa.js" type="module"></script>
+<script src="bbb.js" type="module"></script>
+<script src="mmm.js" type="module"></script>
+</body>
+</html>

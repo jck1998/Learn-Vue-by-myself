@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+
+<div id="app">
+<!--  []括号内有单引号为字符串，反之为变量-->
+  <h2 class="LOL" :class="[active,line]">{{message}}</h2>
+</div>
+
+<script src="../js/vue.js"></script>
+<script>
+  const app = new Vue({
+    el: '#app',
+    data:{
+      message:'你好啊！',
+      active:'sukablyat',
+      line:'JCKCJCK'
+    }
+  })
+
+</script>
+
+</body>
+</html>

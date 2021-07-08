@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+
+<div id="app">
+  <cpn></cpn>
+</div>
+<!--1.把要写的组件在这里写,script标签-->
+<!--<script type="text/x-template" id="cpn1">-->
+<!--<div>-->
+<!--  <h2>我是标题</h2>-->
+<!--  <p>我是NBjck</p>-->
+<!--</div>-->
+<!--</script>-->
+
+<!--2.也可以把要写的组件放到这里，template标签-->
+<template id="cpn1">
+  <div>
+    <h2>{{message}}</h2>
+    <p>{{tittle}}</p>
+  </div>
+</template>
+
+<script src="../js/vue.js"></script>
+<script>
+
+  Vue.component('cpn',{
+    template:'#cpn1',
+    //组件自己的数据可以存放在data里，变成响应式，不用在div里把数据写死
+    data(){
+      return{
+        message: '鸡哥给力给力',
+        tittle:'太帅了666'
+      }
+    }
+  })
+
+  const app = new Vue({
+    el: '#app',
+    data:{
+      message:'你好啊！'
+    }
+  })
+
+</script>
+
+</body>
+</html>

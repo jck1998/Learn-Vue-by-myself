@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+
+<div id="app">
+  <div @click="divClick">
+    点我
+<!--.stop修饰符阻止冒泡，也就是点击按钮只会打印btnClick，不会再一起打印divClick。点我会打印dicClick。-->
+    <button @click.stop="btnClick">按钮</button>
+  </div>
+  <!--.prevent修饰符使用,想要打印，同时不想提交，想通过事件监听自己进行提交，所以在submitClick后加.prevent阻止自己提交-->
+  <br>
+  <form action="baidu">
+    <input type="submit" value="提交" @click.prevent="submitClick">
+  </form>
+<!-- 监听某个键盘键帽的点击(开发一般用keyUp),想监听哪个特殊键在@keyup后加.那个键就可以了 -->
+  <input type="text" @keyup.enter="keyUp">
+<!-- .once修饰符使用 ,只能回调一次,就第一次点击有反应-->
+  <button @click.once="btn2Click">按钮2</button>
+</div>
+
+
+<script src="../js/vue.js"></script>
+<script>
+  const app = new Vue({
+    el: '#app',
+    data:{
+      message:'你好啊！'
+    },
+    methods:{
+      btnClick(){
+        console.log("btnClick");
+      },
+      divClick(){
+        console.log("divClick");
+      },
+      submitClick(){
+        console.log('submitClick');
+      },
+      keyUp(){
+        console.log('keyUp');
+      },
+      btn2Click(){
+        console.log('btn2Click');
+      }
+    }
+  })
+
+</script>
+
+</body>
+</html>

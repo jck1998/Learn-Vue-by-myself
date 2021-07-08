@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+
+<div id="app">
+<!-- 直接写的话，没有指明name的全部被替换，有name的不会被替换 -->
+<!--  <cpn>标题</cpn>-->
+
+<!-- 想要替换相应的插槽就要写上想替换的name -->
+  <cpn><span slot="center">标题！</span></cpn>
+
+  <cpn><button slot="left">返回！</button></cpn>
+</div>
+
+<template id="cpn">
+  <div>
+    <slot name="left"><span>左边</span></slot>
+    <slot name="center"><span>中间</span></slot>
+    <slot name="right"><span>右边</span></slot>
+    <slot><span>没有名字的全部被替换了</span></slot>
+  </div>
+</template>
+
+<script src="../js/vue.js"></script>
+<script>
+  const app = new Vue({
+    el: '#app',
+    data:{
+      message:'你好啊！'
+    },
+    components:{
+      cpn:{
+        template:'#cpn'
+      }
+    }
+  })
+
+</script>
+
+</body>
+</html>

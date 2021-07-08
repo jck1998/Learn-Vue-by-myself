@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+
+<div id="app">
+  <label for="male">
+<!--  如果没有v-model那么想要男女互斥，只选择一个，要加上name，属性相同就互斥  -->
+    <input type="radio" id="male"  value="男" v-model="sex">🚹
+  </label>
+  <label for="female">
+    <input type="radio" id="female"  value="女" v-model="sex">🚺
+  </label>
+  <h2>您的性别是:{{sex}}</h2>
+</div>
+
+<script src="../js/vue.js"></script>
+<script>
+  const app = new Vue({
+    el: '#app',
+    data:{
+      message:'你好啊！',
+      sex:''
+    }
+  })
+
+</script>
+
+</body>
+</html>

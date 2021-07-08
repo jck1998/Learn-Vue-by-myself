@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+
+<div id="app">
+  <cpn></cpn>
+  <cpn><span>这是slot标签显示不同的内容</span></cpn>
+  <cpn><i>jckjckjck</i></cpn>
+  <cpn></cpn>
+</div>
+
+<template id="cpn">
+  <div>
+<!--  一样的东西保留成组件，不一样的的封装成插槽  -->
+    <h2>我是组件</h2>
+    <p>我是NBjck666</p>
+<!--  如果想显示一样的东西很多，不一样的东西很少，可以把想显示的内容直接写在slot的标签里，如果cpn标签里没写其他东西，就直接调用slot标签里的内容，cpn标签里写了东西，就显示cpn标签里的内容  -->
+    <slot><button>按钮</button></slot>
+  </div>
+</template>
+
+<script src="../js/vue.js"></script>
+<script>
+  const app = new Vue({
+    el: '#app',
+    data:{
+      message:'你好啊！'
+    },
+    components:{
+      cpn:{
+        template:'#cpn'
+      }
+    }
+  })
+
+</script>
+
+</body>
+</html>

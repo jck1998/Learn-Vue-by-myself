@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+
+<div id="app">
+  <cpn :childrenmovies="movies" :childrenmessage="message"></cpn>
+</div>
+
+<template id="cpn">
+  <div>
+    <h2>{{childrenmovies}}</h2>
+    <p>{{childrenmessage}}</p>
+  </div>
+</template>
+<script src="../js/vue.js"></script>
+<script>
+  //语法糖Vue.extend()可以省略
+  //父传子：props
+  const cpn={
+    template:'#cpn',
+    //1.props数组类型
+    // props:['childrenmovies','childrenmessage']
+
+    //2.props对象的类型限制
+    props:{
+      // childrenmovies:Array,
+      // childrenmessage:String
+
+      //3.提供一些默认值,
+      childrenmessage:{
+        type:String,
+        default:'aaaaaaaa',
+        required:true
+      },
+      childrenmovies:{
+        type: Array,
+        default(){
+          return{}
+        }
+      }
+    }
+  }
+
+  const app = new Vue({
+    el: '#app',
+    data:{
+      message:'你好啊！',
+      movies:['火影忍者','海贼王','狂赌之渊','02']
+    },
+    components:{
+      cpn
+    }
+  })
+
+</script>
+
+</body>
+</html>

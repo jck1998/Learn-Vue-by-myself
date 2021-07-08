@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+
+<div id="app">
+  <span v-if="isUser">
+<!--  key相当于一个对比两个label和input是否能复用的钥匙，如果key不一样，就不能复用，所以在切换类型时，input里原来输入的东西，不复用就不会再另一个input里面出现  -->
+    <label for="username">用户账号</label>
+    <input type="text" id="username" placeholder="用户账号" key="username">
+  </span>
+  <span v-else>
+     <label for="email">用户邮箱</label>
+    <input type="text" id="email" placeholder="用户邮箱" key="email">
+  </span>
+  <button @click="isUser=!isUser">切换类型</button>
+</div>
+
+<script src="../js/vue.js"></script>
+<script>
+  const app = new Vue({
+    el: '#app',
+    data:{
+      isUser:true
+    }
+  })
+
+</script>
+
+</body>
+</html>
